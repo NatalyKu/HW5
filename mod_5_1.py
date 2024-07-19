@@ -8,8 +8,6 @@ def caching_fibonacci():
                 return 1
             else:
                 cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
-        else:
-            cache[n]
         return cache[n] 
 # Отримуємо функцію fibonacci
     return fibonacci
@@ -22,4 +20,5 @@ print(fib(0))
 print(fib(1))
 print(fib(5))
 print(fib(10))
+print(fib(5))
  

@@ -3,7 +3,7 @@ import re
 from typing import Callable
 
 def generator_numbers(text):
-    pattern = r'\d*\.\d{2}'
+    pattern = r'\d*\.\d+'
     for salary in re.findall(pattern,text):
         yield float(salary)
 

@@ -12,7 +12,6 @@ def caching_fibonacci(cache = None):
                     cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
                     print(f"Hard work {n}")
             else:
-                cache[n]
                 print(f"Easy work {n}")
             print (f"Cache end: {cache}")
             return cache[n]
@@ -27,6 +26,7 @@ print(fib(0))
 print(fib(1))
 print(fib(5))
 print(fib(10))
+print(fib(9))
 
 
  

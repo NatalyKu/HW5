@@ -1,41 +1,27 @@
-def input_error(func):
+def error(func):
     def inner(*args, **kwargs):
         try:
             return func(*args, **kwargs)
         except ValueError:
             return "Give me name and phone please."
-    return inner
-
-def output_error(func):
-    def inner(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
         except IndexError:
             return "Check your contact is right"
-
-    return inner
-
-def key_error(func):
-    def inner(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
         except KeyError:
             return "Check if the name you wrote is correct."
-    return inner
+    return inner   
 
 def parse_input(user_input):
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
     return cmd, *args
 
-@input_error
+@error
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
     return "Contact added."
 
-@key_error
-@input_error
+@error
 def change_contact(args, contacts):
     name, phone = args
     if name in contacts:
@@ -45,8 +31,7 @@ def change_contact(args, contacts):
         return "Are you sure that name is not wrong"
 
 
-@key_error
-@output_error
+@error
 def show_phone(args, contacts):
     name = args[0]
     return contacts[name]
