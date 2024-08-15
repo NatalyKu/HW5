@@ -1,4 +1,4 @@
-def error(func):
+def innput_error(func):
     def inner(*args, **kwargs):
         try:
             return func(*args, **kwargs)
@@ -15,13 +15,13 @@ def parse_input(user_input):
     cmd = cmd.strip().lower()
     return cmd, *args
 
-@error
+@innput_error
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
     return "Contact added."
 
-@error
+@innput_error
 def change_contact(args, contacts):
     name, phone = args
     if name in contacts:
@@ -31,12 +31,12 @@ def change_contact(args, contacts):
         return "Are you sure that name is not wrong"
 
 
-@error
+@innput_error
 def show_phone(args, contacts):
     name = args[0]
     return contacts[name]
 
-    
+@innput_error   
 def show_all(contacts):
     return contacts
 

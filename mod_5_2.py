@@ -3,13 +3,13 @@ import re
 from typing import Callable
 
 def generator_numbers(text):
-    pattern = r'\d*\.\d+'
+    pattern = r'\ \d*\.\d+\ '
     for salary in re.findall(pattern,text):
         yield float(salary)
 
 def sum_profit(text,func): #Hvorfor trenger vi typing Callable?
     income = 0
-    for i in generator_numbers(text):
+    for i in func(text):
         income += i
     return income
  

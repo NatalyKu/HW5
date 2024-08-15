@@ -9,7 +9,7 @@ def parse_log_line(line: str) -> dict:
             }
     return dict_line
 
-def load_loggs(file_path):
+def load_loggs(file_path: str) -> list:
     try:
         with open (file_path, 'r') as logg_file:
             list_logg=[]
